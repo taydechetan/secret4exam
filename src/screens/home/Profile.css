@@ -1,0 +1,46 @@
+.profile-section {
+  padding: 20px 0;
+}
+
+.download-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.head {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.image-social {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-image {
+  width: 150px; /* Set a default width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+}
+
+@media (max-width: 772px) {
+  .image-social {
+    justify-content: center;
+  }
+
+  .social-image {
+    width: 120px; /* Adjust for smaller screens */
+  }
+
+  .head {
+    font-size: 1.2rem; /* Responsive font size */
+  }
+}
+
+@media (max-width: 576px) {
+  .social-image {
+    width: 100px; /* Further reduce size on very small screens */
+  }
+}

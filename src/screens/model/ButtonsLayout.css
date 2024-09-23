@@ -1,0 +1,46 @@
+.exam-buttons-container {
+  padding: 20px;
+}
+
+.exam-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.exam-btn-wrapper {
+  flex: 1 1 calc(33.333% - 20px);
+  margin: 0 10px 20px 10px;
+}
+
+.exam-btn {
+  background-color: #782a8c !important;
+  color: white !important;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.exam-btn:hover {
+  background-color: #6a1b78 !important;
+  color: white !important;
+}
+
+.exam-btn:focus {
+  box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .exam-btn-wrapper {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .exam-btn-wrapper {
+    flex: 1 1 calc(100% - 20px);
+  }
+}

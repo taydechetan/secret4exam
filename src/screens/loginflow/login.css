@@ -1,0 +1,124 @@
+/* .logindiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+  margin: 70px;
+}
+
+h3 {
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-check {
+  margin: 1rem 0;
+}
+
+.loginb {
+  background-color: #7a1cac;
+  border-color: #7a1cac;
+}
+
+.loginb:hover {
+  background-color: white;
+  border-color: #7a1cac;
+  color: #7a1cac;
+}
+
+a.forgot {
+  color: #44bd86;
+  text-decoration: none;
+}
+
+a.forgot:hover {
+  color: #44bd86;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.divider hr {
+  flex: 1;
+  border: 1px solid #ddd;
+}
+
+.divider span {
+  padding: 0 1rem;
+  color: #888;
+}
+
+.text-center p {
+  margin: 1rem 0;
+}
+
+.text-center a {
+  color: #00bcd4;
+}
+
+.text-center a:hover {
+  color: #0097a7;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1rem;
+    margin: 15px;
+  }
+} */
+/* 
+.bloginn {
+  background-color: #782a8c;
+  border-color: #782a8c;
+  color: white;
+  transition: all 0.3s ease-in-out; 
+}
+
+.bloginn:hover {
+  background-color: white;
+  color: #f5f2f2;
+  border-color: #f5f2f2;
+} */
+
+.bloginn {
+  background-color: #782a8c;
+  border-color: #782a8c;
+  color: white;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.bloginn:hover {
+  background-color: white;
+  color: #f5f2f2;
+  border-color: #f5f2f2;
+}
