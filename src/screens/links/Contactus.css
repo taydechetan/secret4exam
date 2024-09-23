@@ -1,0 +1,53 @@
+.contACTimagesection {
+  background-image: url("https://www.secrets4exams.com/frontend/images/medical_banner.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.blackbackCONTACT {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.text-content {
+  position: relative;
+  z-index: 1;
+  margin-left: 50px;
+  color: white;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 10px 0 0;
+}
+
+.btncont {
+  background-color: #782a8c;
+  color: white;
+  text-decoration: none;
+  padding: 12px 70px;
+  background: #782a8c;
+  border-radius: 5px;
+  color: #fff;
+  border: 1px solid #782a8c;
+  transition: 0.2s all;
+}
+
+.btncont:hover {
+  background-color: white;
+  color: #782a8c;
+}
