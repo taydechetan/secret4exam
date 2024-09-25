@@ -1,11 +1,11 @@
 .togglebar-body {
   padding: 10px;
-  border-radius: 0; 
+  border-radius: 0;
 }
 
 .togglebar-header {
   background-color: #e0e0e0;
-  border-bottom: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
 }
 
 .togglebar-title {
@@ -15,7 +15,7 @@
 }
 
 .togglebar-input {
-  width: 100%;
+  width: 300px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 50px;
@@ -39,4 +39,3 @@
 .togglebar-item:hover {
   background-color: #f5f5f5;
 }
-

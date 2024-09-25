@@ -3,10 +3,17 @@ import "./login.css";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { GoogleLogin } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
-import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { apiCallNew } from "../../networkcall/apiservises";
+import ApiEndPoints from "../../networkcall/Apiendpoint";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [usernameError, setUsernameError] = useState("");
@@ -16,13 +23,15 @@ function Login() {
 
   const handleSuccess = (response) => {
     console.log("Login Success:", response);
+    toast.success("Login successful!");
   };
 
   const handleError = (error) => {
     console.log("Login Error:", error);
+    toast.error("Login failed!");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setUsernameError("");
     setPasswordError("");
@@ -36,7 +45,26 @@ function Login() {
     }
 
     if (username.trim() && password.trim()) {
-      console.log("Form submitted with", { username, password });
+      const payload = {
+        email: username,
+        password: password,
+      };
+
+      try {
+        const res = await apiCallNew("post", payload, ApiEndPoints.Login);
+        if (res.status === 200) {
+          console.log(res);
+          toast(res.message);
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        } else {
+          toast.error("Login failed! Please check your credentials.");
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
     }
   };
 
@@ -62,8 +90,11 @@ function Login() {
   const login = useGoogleLogin({
     onSuccess: (response) => {
       setUser(response);
+      handleSuccess(response);
     },
-    onError: (error) => console.log("Login Failed:", error),
+    onError: (error) => {
+      handleError(error);
+    },
   });
 
   const handleLogin = () => {
@@ -83,7 +114,6 @@ function Login() {
           >
             <h3 className="text-center mb-4">Login</h3>
 
-            {/* Email Input */}
             <Form.Group controlId="formEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -116,7 +146,7 @@ function Login() {
               controlId="formRemember"
               className="mt-3 d-flex justify-content-between align-items-center"
             >
-              <Form.Check type="checkbox" label="Remember Me" />
+              <Form.Check type="checkbox" label=" Remember Me" />
               <a
                 href="/ForgetPassword"
                 style={{ color: "#44bd79", textDecoration: "none" }}
@@ -160,6 +190,7 @@ function Login() {
               </p>
             </div>
           </Form>
+          <ToastContainer />
         </Col>
       </Row>
     </Container>

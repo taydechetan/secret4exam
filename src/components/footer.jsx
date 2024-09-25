@@ -25,10 +25,9 @@ const Footer = () => {
     >
       <Container fluid className="px-5">
         <Row>
-          {/* Column 1: About */}
           <Col lg={3} md={4} sm={6} xs={12} className="footer-about mb-4">
             <div className="footer-logo">
-              <a href="home">
+              <a href="/">
                 <img
                   src="https://www.secrets4exams.com/frontend/images/secret4exams.png"
                   alt="Secrets4Exams Logo"
