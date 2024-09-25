@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Offcanvas } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TiThMenu } from "react-icons/ti";
-import "./Togglebar.css"; 
+import "./Togglebar.css";
 import { IoSearch } from "react-icons/io5";
 
 const Togglebar = () => {
@@ -32,6 +32,7 @@ const Togglebar = () => {
                 type="text"
                 placeholder="Search"
                 className="togglebar-input"
+                style={{ width: "300px" }}
               />
 
               <IoSearch
@@ -63,5 +64,3 @@ const Togglebar = () => {
 };
 
 export default Togglebar;
-
-

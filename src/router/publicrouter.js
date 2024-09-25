@@ -16,6 +16,8 @@ import Aboutus from '../screens/links/aboutus'
 import Contactus from '../screens/links/contactus'
 import Faqq from '../screens/links/faqq'
 
+import Pricingplans from "../screens/links/pricingplans"
+
 
 import Buttonslayout from '../screens/model/buttonslayout'
 
@@ -35,6 +37,7 @@ export default function publicrouter() {
                     <Route path='aboutus' element={<Aboutus />} />
                     <Route path='contactus' element={<Contactus />} />
                     <Route path='faqq' element={< Faqq />} />
+                    <Route path='pricingplans' element={< Pricingplans />} />
                     <Route path='forgetPassword' element={< ForgetPassword />} />
                     <Route path='buttonslayout' element={< Buttonslayout />} />
                 </Routes>

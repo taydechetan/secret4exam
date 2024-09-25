@@ -13,6 +13,7 @@ const About = () => {
           />
         </div>
         <div className="about-text-section col-md-6">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple"></link>
           <h1 class="font-effect-outline">ABOUT</h1>
           <h3 className="about-subtitle">
             We're passionate about helping our users succeed
@@ -26,7 +27,6 @@ const About = () => {
           <Link to="/aboutus">
             <button className="about-button">Learn More</button>
           </Link>
-          {/* <button className="about-button">Learn More</button> */}
         </div>
       </div>
     </div>

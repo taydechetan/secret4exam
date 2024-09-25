@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
+import { apiCallNew } from "../../networkcall/apiservises";
+import ApiEndPoints from "../../networkcall/Apiendpoint";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,6 +20,10 @@ function App() {
   const [emailError, setEmailError] = useState("");
   const [passError, setPassError] = useState("");
   const [conformError, setConformError] = useState("");
+  const [phonenum, setphonenum] = useState("");
+  const [phoneerror, setphoneerror] = useState("");
+
+  const navigate = useNavigate();
 
   const login = useGoogleLogin({
     onSuccess: (response) => {
@@ -47,7 +55,7 @@ function App() {
     login();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let isValid = true;
@@ -83,13 +91,44 @@ function App() {
       setConformError("");
     }
 
+    if (phonenum.trim() === "") {
+      setphoneerror("Please enter your phone number.");
+      isValid = false;
+    } else {
+      setphoneerror("");
+    }
+
     if (isValid) {
-      console.log("Form submitted with", { username, emailname, password });
+      const payload = {
+        name: username,
+        email: emailname,
+        password: password,
+        confirmPassword: conformpass,
+        mobile: phonenum,
+        role: "s",
+      };
+
+      try {
+        const res = await apiCallNew("post", payload, ApiEndPoints.Register);
+        console.log(res);
+        if (res.status === 200) {
+          toast.success("Registration successful!");
+          setTimeout(() => {
+            navigate("/");
+          }, 3000);
+        } else {
+          toast.error("Registration failed!");
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
     }
   };
 
   return (
     <div className="sign-up-container">
+      <ToastContainer />
       <h2 className="sign-up-title">Register</h2>
       <form className="sign-up-form" onSubmit={handleSubmit}>
         <label className="form-group">
@@ -134,6 +173,17 @@ function App() {
             onChange={(e) => setConformpass(e.target.value)}
           />
           {conformError && <p className="error">{conformError}</p>}
+        </label>
+
+        <label className="form-group">
+          <p>Phone Number</p>
+          <input
+            type="number"
+            placeholder="Phone Number"
+            value={phonenum}
+            onChange={(e) => setphonenum(e.target.value)}
+          />
+          {phoneerror && <p className="error">{phoneerror}</p>}
         </label>
 
         <div className="form-actions">
